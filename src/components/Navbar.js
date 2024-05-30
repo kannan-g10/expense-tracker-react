@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center px-10 bg-[#4A0906] dark:bg-[#081a24] text-white w-full h-20">
-      <div className="flex items-center gap-x-3 lg:gap-x-10 bg-[#4A0906] dark:bg-[#081a24]">
+      <div className="flex items-center gap-x-3 lg:gap-x-10 dark:bg-[#081a24]">
         <Link to="/">
           <img
             src={title}
@@ -53,19 +53,19 @@ const Navbar = () => {
           />
         </Link>
         <nav>
-          <ul className="flex gap-x-2 bg-[#4A0906] dark:bg-[#081a24]">
+          <ul className="flex gap-x-2 dark:bg-[#081a24]">
             <Link to="/">
-              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
+              <li className="text-sm md:text-2xl font-semibold dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
                 Home
               </li>
             </Link>
             <Link to="/about">
-              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
+              <li className="text-sm md:text-2xl font-semibold dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
                 About
               </li>
             </Link>
             <Link to="/contact">
-              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
+              <li className="text-sm md:text-2xl font-semibold dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
                 Contact Us
               </li>
             </Link>
@@ -76,13 +76,13 @@ const Navbar = () => {
         {toggleTheme === 'light' ? (
           <MdDarkMode
             size={40}
-            className="cursor-pointer bg-[#4A0906]"
+            className="cursor-pointer "
             onClick={handleThemeSwitch}
           />
         ) : (
           <MdOutlineLightMode
             size={40}
-            className="cursor-pointer bg-[#4A0906] dark:bg-[#081a24]"
+            className="cursor-pointer dark:bg-[#081a24]"
             onClick={handleThemeSwitch}
           />
         )}
@@ -96,7 +96,7 @@ const Navbar = () => {
         ) : (
           <IoPersonCircleOutline
             size={40}
-            className="cursor-pointer bg-[#4A0906]"
+            className="cursor-pointer "
             onClick={() => setShowProfileModal(true)}
           />
         )}

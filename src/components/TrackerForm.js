@@ -67,7 +67,7 @@ const TrackerForm = () => {
           Track Your Expenses
         </h1>
       </div>
-      <div className="bg-[#fad3c6] dark:bg-[#053F5E] shadow-xl w-full md:w-1/3 lg:w-1/4 mx-auto m-10 p-10 flex flex-col justify-start rounded-lg">
+      <div className="bg-[#fad3c6] dark:bg-[#053F5E] shadow-xl dark:shadow-black dark:shadow-lg w-full md:w-1/3 lg:w-1/4 mx-auto m-10 p-10 flex flex-col justify-start rounded-lg">
         <input
           type="text"
           placeholder="Description"
