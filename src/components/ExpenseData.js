@@ -43,15 +43,16 @@ const ExpenseData = () => {
 
   if (loading) {
     return (
-      <p className="text-center pb-20 text-violet-500 text-xl">Loading...</p>
+      <p className="text-center pb-20 text-violet-500 dark:text-white text-xl">
+        Loading...
+      </p>
     );
   }
 
-  // Render expenses after they are fetched
   return (
     <div className="w-full md:w-2/3 mx-auto">
       {/* Table Header */}
-      <div className="flex justify-between bg-[brown] text-white text-xl font-bold px-10 py-3">
+      <div className="flex justify-between bg-[brown] dark:bg-[#022C43] text-white text-xl font-bold px-10 py-3">
         <div className="w-1/4">Description</div>
         <div className="w-1/4">Amount</div>
         <div className="w-1/4">Category</div>
@@ -59,7 +60,7 @@ const ExpenseData = () => {
       </div>
       {/* Table Row */}
       {!expenses?.length > 0 ? (
-        <div className="text-center text-3xl py-10 font-bold text-red-400">
+        <div className="text-center text-3xl py-10 font-bold text-red-400 dark:text-cyan-500">
           No Expenses To Display!
         </div>
       ) : (
@@ -69,7 +70,7 @@ const ExpenseData = () => {
             const key = spend.id || index;
             return (
               <div key={key}>
-                <div className="flex justify-between items-center text-lg my-2 text-slate-800 font-semibold px-10 py-4 bg-[#e9c7c7]">
+                <div className="flex justify-between items-center text-lg my-2 text-slate-800 dark:text-cyan-100 font-semibold px-10 py-4 bg-[#e9c7c7] dark:bg-[#115173]">
                   <div className="w-1/4">{spend.description}</div>
                   <div className="w-1/4">{spend.amount}</div>
                   <div className="w-1/4">{spend.category}</div>

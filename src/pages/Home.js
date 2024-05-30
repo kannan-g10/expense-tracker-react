@@ -31,9 +31,9 @@ const Home = () => {
   return (
     <>
       {currentUser ? (
-        <div className="bg-rose-100">
+        <div className="bg-rose-100 dark:bg-[#021F34]">
           <Navbar />
-          <h1 className="font-serif text-2xl font-bold m-2 hover:animate-pulse cursor-pointer text-rose-700 absolute">
+          <h1 className="italic text-3xl font-bold m-2 hover:animate-pulse cursor-pointer text-rose-700 dark:text-cyan-500 absolute">
             Welcome {currentUser?.name}!
           </h1>
           <div className="w-full flex flex-col mt-5">

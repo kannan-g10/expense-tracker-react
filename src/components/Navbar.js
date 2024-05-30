@@ -2,21 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoPersonCircleOutline } from 'react-icons/io5';
 import { MdOutlineLightMode } from 'react-icons/md';
+import { MdDarkMode } from 'react-icons/md';
 import { FaUserEdit } from 'react-icons/fa';
 import { MdOutlineLogout } from 'react-icons/md';
 
 import title from '../assets/title.png';
 import { logout } from '../helpers/authentication';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  let systemTheme = localStorage.getItem('theme');
+  const [toggleTheme, setToggleTheme] = useState(systemTheme || 'light');
+
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [currentUserImage, setCurrentUserImage] = useState(null);
 
   const { imageUrl } = useSelector(state => state.authSlice);
-  const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (toggleTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [toggleTheme]);
+
+  const handleThemeSwitch = () => {
+    localStorage.setItem('theme', toggleTheme === 'dark' ? 'light' : 'dark');
+    setToggleTheme(toggleTheme === 'dark' ? 'light' : 'dark');
+  };
 
   useEffect(() => {
     setCurrentUserImage(imageUrl);
@@ -27,8 +43,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center px-10 bg-[#4A0906] text-white w-full h-20">
-      <div className="flex items-center gap-x-3 lg:gap-x-10 bg-[#4A0906]">
+    <div className="flex justify-between items-center px-10 bg-[#4A0906] dark:bg-[#081a24] text-white w-full h-20">
+      <div className="flex items-center gap-x-3 lg:gap-x-10 bg-[#4A0906] dark:bg-[#081a24]">
         <Link to="/">
           <img
             src={title}
@@ -37,19 +53,19 @@ const Navbar = () => {
           />
         </Link>
         <nav>
-          <ul className="flex gap-x-2 bg-[#4A0906]">
+          <ul className="flex gap-x-2 bg-[#4A0906] dark:bg-[#081a24]">
             <Link to="/">
-              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] cursor-pointer hover:bg-[#FAD9D0] hover:text-[#4A0906] py-3 px-5 rounded-lg duration-300">
+              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
                 Home
               </li>
             </Link>
             <Link to="/about">
-              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] cursor-pointer hover:bg-[#FAD9D0] hover:text-[#4A0906] py-3 px-5 rounded-lg duration-300">
+              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
                 About
               </li>
             </Link>
             <Link to="/contact">
-              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] cursor-pointer hover:bg-[#FAD9D0] hover:text-[#4A0906] py-3 px-5 rounded-lg duration-300">
+              <li className="text-sm md:text-2xl font-semibold bg-[#4A0906] dark:bg-[#081a24] cursor-pointer hover:bg-[#FAD9D0] dark:hover:bg-cyan-600 hover:text-[#4A0906] dark:hover:text-white py-3 px-5 rounded-lg duration-300">
                 Contact Us
               </li>
             </Link>
@@ -57,7 +73,19 @@ const Navbar = () => {
         </nav>
       </div>
       <div className="flex gap-x-5 relative">
-        <MdOutlineLightMode size={40} className="cursor-pointer bg-[#4A0906]" />
+        {toggleTheme === 'light' ? (
+          <MdDarkMode
+            size={40}
+            className="cursor-pointer bg-[#4A0906]"
+            onClick={handleThemeSwitch}
+          />
+        ) : (
+          <MdOutlineLightMode
+            size={40}
+            className="cursor-pointer bg-[#4A0906] dark:bg-[#081a24]"
+            onClick={handleThemeSwitch}
+          />
+        )}
         {currentUserImage ? (
           <img
             src={currentUserImage}
