@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { auth } from './config/firebase-config';
 import UserRoutes from './routes/UserRoutes';
 import NonUserRoutes from './routes/NonUserRoutes';
+import Loading from './components/Loading';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -20,9 +21,7 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return (
-      <p className="text-center mt-32 text-violet-500 text-xl">Loading...</p>
-    );
+    return <Loading />;
   }
 
   return (

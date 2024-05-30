@@ -7,6 +7,7 @@ import { auth } from '../config/firebase-config';
 import { getCurrentUser } from '../helpers/authentication';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../redux/features/authSlice';
+import Loading from '../components/Loading';
 
 const Home = () => {
   const { name, imageUrl } = useSelector(state => state.authSlice);
@@ -23,9 +24,7 @@ const Home = () => {
   }, [name, imageUrl]);
 
   if (!currentUser?.name) {
-    return (
-      <p className="text-center mt-32 text-violet-500 text-xl">Loading...</p>
-    );
+    return <Loading />;
   }
 
   return (

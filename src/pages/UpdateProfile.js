@@ -21,14 +21,14 @@ const UpdateProfile = () => {
     setUpdatedImageUrl('');
   };
   return (
-    <div className="w-full h-screen bg-rose-100 flex justify-center items-center">
+    <div className="w-full h-screen bg-rose-100 dark:bg-[#021F34] flex justify-center items-center">
       <Link to="/">
         <button className="px-4 py-2 bg-teal-400 text-xl hover:bg-cyan-600 text-white font-semibold rounded-lg absolute top-5 left-8">
           <FaArrowLeft className="inline mr-1 mb-1 font-bold text-lg" />
           Go Back
         </button>
       </Link>
-      <div className="flex justify-center items-center rounded-xl md:w-2/3 md:mx-auto bg-[brown]">
+      <div className="flex justify-center items-center rounded-xl md:w-2/3 md:mx-auto bg-[brown] dark:bg-cyan-600">
         <img
           src={updateProfile}
           alt="Update Profile"
@@ -56,7 +56,7 @@ const UpdateProfile = () => {
           />
 
           <button
-            className="bg-[#fd325b] text-white hover:bg-red-500 px-5 py-2 w-1/2 my-5 mx-auto text-xl font-bold rounded-lg "
+            className="bg-[#fd325b] dark:bg-[brown] dark:hover:bg-green-400 dark:hover:text-green-900 text-white hover:bg-red-500 px-5 py-2 w-1/2 my-5 mx-auto text-xl font-bold rounded-lg "
             onClick={handleUpdate}
           >
             Update
