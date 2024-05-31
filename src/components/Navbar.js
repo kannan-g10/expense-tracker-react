@@ -106,6 +106,11 @@ const Navbar = () => {
             onMouseOver={() => setShowProfileModal(true)}
             onMouseLeave={() => setShowProfileModal(false)}
           >
+            {!currentUserImage && (
+              <h2 className="text-center dark:text-[orange] text-lg rounded-md my-1 bg-red-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 flex items-center justify-around hover:bg-rose-300 mx-auto text-yellow-200 hover:text-black duration-500 font-semibold p-3">
+                Your Profile Is Incomplete! Complete Now
+              </h2>
+            )}
             <Link
               to="/update-profile"
               className="w-full rounded-md my-1 bg-red-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 flex items-center justify-around hover:bg-rose-300 mx-auto text-white hover:text-black duration-500 font-semibold p-3"

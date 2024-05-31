@@ -35,6 +35,7 @@ export const loginUser = async (email, password, navigate) => {
     const user = auth.currentUser;
     if (user && user.emailVerified) {
       toast.success('Login Successful!');
+      navigate('/');
       window.location.href = '/';
     } else {
       toast.error('Verify Your Email To Login!');

@@ -12,11 +12,6 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [isEmailVerified, setIsEmailVerified] = useState(null);
 
-  if (user) {
-    console.log(user);
-    console.log(user?.emailVerified);
-  }
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setUser(user);

@@ -22,6 +22,9 @@ const UpdateProfile = () => {
   };
   return (
     <div className="w-full h-screen bg-rose-100 dark:bg-[#021F34] flex justify-center items-center">
+      <h1 className="absolute left-[40%] top-5 text-2xl font-bold text-red-600 dark:text-cyan-600">
+        Winners Never Quit, Quitters Never Win!
+      </h1>
       <GoBack />
       <div className="flex justify-center items-center rounded-xl md:w-2/3 md:mx-auto bg-[brown] dark:bg-cyan-600">
         <img
