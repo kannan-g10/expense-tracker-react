@@ -7,7 +7,7 @@ const Error = () => {
       <div className="text-2xl">
         404 page not found!
         <Link to="/">
-          <span className="text-violet-500 underline px-3">Home</span>
+          <span className="text-violet-500 underline px-3">Back</span>
         </Link>
       </div>
     </div>

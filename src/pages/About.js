@@ -1,8 +1,10 @@
 import React from 'react';
+import GoBack from '../components/GoBack';
 
 const About = () => {
   return (
     <div className="text-center bg-rose-100 dark:bg-[#021F34] dark:text-green-50 p-10">
+      <GoBack />
       <h1 className="text-5xl font-bold pb-10 text-[brown] dark:text-cyan-500">
         About Us
       </h1>

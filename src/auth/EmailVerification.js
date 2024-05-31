@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { auth } from '../config/firebase-config';
 import { sendEmailVerification } from 'firebase/auth';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const EmailVerificationModal = () => {
+const EmailVerificationModal = ({}) => {
   const user = auth.currentUser;
   const navigate = useNavigate();
 
@@ -30,12 +30,6 @@ const EmailVerificationModal = () => {
               Click Verify To Verify You Email
             </h2>
             <div className="flex justify-end">
-              <button
-                onClick={() => navigate('/register')}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center mr-2"
-              >
-                Cancel
-              </button>
               <button
                 className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded inline-flex items-center"
                 onClick={emailVerificationHandler}

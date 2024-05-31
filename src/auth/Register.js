@@ -3,10 +3,9 @@ import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { createUser } from '../helpers/authentication';
-import EmailVerificationModal from './EmailVerification';
 
 const Register = ({}) => {
-  const [isOpen, setIsopen] = useState(false);
+  const navigate = useNavigate();
 
   const [showEye, setShowEye] = useState(false);
   const [showConfirmEye, setShowConfirmEye] = useState(false);
@@ -15,8 +14,6 @@ const Register = ({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
-  const navigate = useNavigate();
 
   const handleRegistration = async () => {
     try {
@@ -46,7 +43,6 @@ const Register = ({}) => {
       setEmail('');
       setPassword('');
       setConfirmPassword('');
-      setIsopen(true);
     } catch (err) {
       toast.error('Registration Failed!');
       console.error(err);
@@ -55,7 +51,6 @@ const Register = ({}) => {
 
   return (
     <>
-      {isOpen && <EmailVerificationModal onClose={() => setIsopen(false)} />}
       <div className="bg-gradient-to-tr from-indigo-500 to-fuchsia-500 h-screen w-full flex justify-center items-center">
         <div className="w-full md:w-1/2 lg:w-1/4 rounded-xl mx-5 bg-white flex flex-col items-center p-5">
           <h1 className="text-4xl font-bold m-3">Register</h1>

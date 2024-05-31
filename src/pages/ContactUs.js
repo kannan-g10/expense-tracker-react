@@ -1,6 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import GoBack from '../components/GoBack';
 
 const ContactUs = () => {
   const navigate = useNavigate();
@@ -12,6 +14,7 @@ const ContactUs = () => {
 
   return (
     <div className="bg-pink-100 dark:bg-[#021F34] h-screen w-full">
+      <GoBack />
       <h1 className="text-3xl font-bold p-10 text-[brown] dark:text-cyan-500 text-center">
         Contact Us
       </h1>

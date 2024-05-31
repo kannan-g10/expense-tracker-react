@@ -21,17 +21,24 @@ export const createUser = async (name, email, password, navigate) => {
     }
     toast.success('Registration Successful!');
     navigate('/email-verify');
+    return true;
   } catch (err) {
     toast.error('Registration Failed!');
     console.error(err);
+    return false;
   }
 };
 
 export const loginUser = async (email, password, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    toast.success('Login Successful!');
-    navigate('/');
+    const user = auth.currentUser;
+    if (user && user.emailVerified) {
+      toast.success('Login Successful!');
+      window.location.href = '/';
+    } else {
+      toast.error('Verify Your Email To Login!');
+    }
   } catch (err) {
     toast.error('Account Not Found!');
     console.error(err);

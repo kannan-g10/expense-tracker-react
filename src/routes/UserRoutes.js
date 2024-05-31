@@ -1,13 +1,15 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import Home from '../pages/Home';
 import About from '../pages/About';
 import UpdateProfile from '../pages/UpdateProfile';
 import ContactUs from '../pages/ContactUs';
 import Error from '../components/Error';
+import { auth } from '../config/firebase-config';
 
 const UserRoutes = () => {
+  console.log('User Route');
   return (
     <Routes>
       <Route path="/" element={<Home />} />
