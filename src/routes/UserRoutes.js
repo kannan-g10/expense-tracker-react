@@ -9,7 +9,6 @@ import Error from '../components/Error';
 import { auth } from '../config/firebase-config';
 
 const UserRoutes = () => {
-  console.log('User Route');
   return (
     <Routes>
       <Route path="/" element={<Home />} />

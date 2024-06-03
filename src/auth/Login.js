@@ -27,6 +27,7 @@ const Login = () => {
         return;
       }
       await loginUser(email, password, navigate);
+      navigate('/');
       setEmail('');
       setPassword('');
     } catch (err) {

@@ -29,13 +29,12 @@ export const createUser = async (name, email, password, navigate) => {
   }
 };
 
-export const loginUser = async (email, password, navigate) => {
+export const loginUser = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
     const user = auth.currentUser;
     if (user && user.emailVerified) {
       toast.success('Login Successful!');
-      navigate('/');
       window.location.href = '/';
     } else {
       toast.error('Verify Your Email To Login!');
